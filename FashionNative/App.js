@@ -1,9 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, ScrollView, View, Image, Button, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, ScrollView, FlatList, View, Image, Button, TouchableHighlight } from 'react-native';
 
 import { NativeRouter, Router, Route, Switch, Link } from 'react-router-native';
 
 import axios from 'react-native-axios';
+import { FlatList } from 'react-native-gesture-handler';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -69,7 +70,12 @@ export default class App extends React.Component {
           <Text style={{ fontSize: 36 }}>FASHION NATIVE</Text>
         </View>
         <ScrollView style={{width: 400}}>
-          {pics}
+          <FlatList
+            data={pics}
+            
+          >
+            
+          </FlatList>
         </ScrollView>
       </View>
     )
