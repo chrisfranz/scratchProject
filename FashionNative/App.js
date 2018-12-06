@@ -4,7 +4,7 @@ import { StyleSheet, Text, ScrollView, FlatList, View, Image, Button, TouchableH
 import { NativeRouter, Router, Route, Switch, Link } from 'react-router-native';
 
 import axios from 'react-native-axios';
-import { FlatList } from 'react-native-gesture-handler';
+// import { FlatList } from 'react-native-gesture-handler';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -14,16 +14,16 @@ export default class App extends React.Component {
   }
 
 
-  // getAllPictures = () => {
-  //   axios.get("http://192.168.0.89:3000/pictures")
-  //     .then(res => console.log(res))
-  //     // .then(data => console.log(data))
-  //     .catch(err => console.log(err))
-  // }
+  getAllPictures = () => {
+    axios.get("http://10.0.1.55:3000/pictures")
+      .then(res => console.log(res))
+      // .then(data => console.log(data))
+      .catch(err => console.log(err))
+  }
 
-  // componentDidMount() {
-  //   this.getAllPictures()
-  // }
+  componentDidMount() {
+    this.getAllPictures()
+  }
 
   render() {
 
@@ -70,12 +70,7 @@ export default class App extends React.Component {
           <Text style={{ fontSize: 36 }}>FASHION NATIVE</Text>
         </View>
         <ScrollView style={{width: 400}}>
-          <FlatList
-            data={pics}
-            
-          >
-            
-          </FlatList>
+          {pics}
         </ScrollView>
       </View>
     )
@@ -98,8 +93,8 @@ const styles = StyleSheet.create({
     // borderRight: 1.5,
     borderColor: 'white',
     // animation: 2s ease-out 0s fadeInOpac;,
-    width: 150,
-    height: 150
+    width: 400,
+    height: 400
   }
 })
 
